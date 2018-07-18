@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.7
 
 COPY ./ /tmp
 
@@ -8,6 +8,7 @@ RUN apk update \
   && apk add --no-cache ca-certificates \
                         libressl \
                         llvm-libunwind \
+                        libgcc \
   && apk add --no-cache --virtual .build-rust \
     rust \
     cargo \
